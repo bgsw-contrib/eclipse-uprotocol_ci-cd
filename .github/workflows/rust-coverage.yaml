@@ -56,10 +56,10 @@ jobs:
       - uses: actions-rust-lang/setup-rust-toolchain@ecabd13d1c56bd1345c230e542e9144811ad706f # v2.0.0
         with: 
           toolchain: ${{ env.RUST_TOOLCHAIN }}
+
       - name: Install cargo-tarpaulin
-        uses: taiki-e/install-action@ace6ebe54a6a0c86dfb5f7764b17f793b6925bc3 # v2.82.3
-        with:
-            tool: cargo-tarpaulin
+        run: |
+          cargo install cargo-tarpaulin --locked
 
       - name: Run tests and report code coverage
         run: |
